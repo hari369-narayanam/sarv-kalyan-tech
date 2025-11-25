@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <body style="font-family:Arial;padding:20px">
+    <h2>Admin Uploader — ONLY OWNER</h2>
+    <p>Repo example: <code>hari369-narayanam/sarv-kalyan-tech</code></p>
+    <input id="token" placeholder="GitHub PAT (keep secret)" style="width:100%;padding:8px"/><br/><br/>
+    <input id="repo" placeholder="owner/repo" value="hari369-narayanam/sarv-kalyan-tech" style="width:100%;padding:8px"/><br/><br/>
+    <input id="path" placeholder="Path in repo (eg: notes/book1.pdf)" style="width:100%;padding:8px"/><br/><br/>
+    <input id="file" type="file"/><br/><br/>
+    <button onclick="upload()">Upload to GitHub</button>
+    <pre id="out" style="background:#f7f7f7;padding:10px;margin-top:12px"></pre>
+
+  <script>
+  async function upload(){
+    const token=document.getElementById('token').value.trim();
+    const repo=document.getElementById('repo').value.trim();
+    const path=document.getElementById('path').value.trim();
+    const f=document.getElementById('file').files[0];
+    const out=document.getElementById('out');
+    if(!token||!repo||!path||!f){ out.textContent='सब भरो (token, repo, path, file).'; return; }
+    const buf=await f.arrayBuffer();
+    const b64=btoa(String.fromCharCode(...new Uint8Array(buf)));
+    const url=`https://api.github.com/repos/${repo}/contents/${encodeURIComponent(path)}`;
+    // try get sha if exists
+    let sha=null;
+    try{
+      let r=await fetch(url,{headers:{Authorization:'token '+token}});
+      if(r.ok){ let j=await r.json(); sha=j.sha }
+    }catch(e){}
+    const body={message:(sha ? 'Update file via admin uploader' : 'Add file via admin uploader'), content: b64};
+    if(sha) body.sha=sha;
+    const res=await fetch(url,{method:'PUT',headers:{Authorization:'token '+token,'Content-Type':'application/json'},body:JSON.stringify(body)});
+    const j=await res.json();
+    out.textContent=JSON.stringify(j,null,2);
+  }
+  </script>
+  </body>
+</html>
