@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      color: #333;
+    }
+    header {
+      background: #111827;
+      padding: 20px;
+      text-align: center;
+      color: white;
+      font-size: 28px;
+    }
+    .container {
+      width: 90%;
+      max-width: 900px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+    }
+    h2 {
+      color: #111827;
+      margin-bottom: 10px;
+    }
+    p {
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .contact-form {
+      margin-top: 20px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: 1px solid #cbd5e1;
+      font-size: 16px;
+    }
+    button {
+      margin-top: 20px;
+      background: #111827;
+      color: #fff;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #1e293b;
+    }
+    .info-box {
+      margin-top: 30px;
+      background: #f8fafc;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    }
+    footer {
+      background: #111827;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>Contact Us</header>
+
+  <div class="container">
+    <h2>Get in Touch</h2>
+    <p>Have questions, suggestions, or need support? We are here to help! You can reach out anytime using the form below.</p>
+
+    <div class="contact-form">
+      <label>Name:</label>
+      <input type="text" placeholder="Enter your name" />
+
+      <label>Email:</label>
+      <input type="email" placeholder="Enter your email" />
+
+      <label>Message:</label>
+      <textarea rows="5" placeholder="Write your message..."></textarea>
+
+      <button>Send Message</button>
+    </div>
+
+    <div class="info-box">
+      <h2>Other Contact Methods</h2>
+      <p><strong>Email:</strong> support@youreducationplatform.com</p>
+      <p><strong>Instagram:</strong> @your_platform</p>
+      <p><strong>YouTube:</strong> /YourPlatform</p>
+      <p><strong>Telegram:</strong> t.me/YourPlatform</p>
+    </div>
+  </div>
+
+  <footer>© 2025 — Your Educational Platform. All Rights Reserved.</footer>
+</body>
+</html>
