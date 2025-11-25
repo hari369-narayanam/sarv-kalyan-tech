@@ -1,8 +1,146 @@
 <!--
 Project: Sarv-Kalyan Tech (Zero-cost launch)
 File: Single-file static website (HTML/CSS/JS)
-How to use:
-1) Create a new GitHub repository named `sarv-kalyan-tech` (or any name).
+How to use:<!--
+Final index.html for Sarv-Kalyan Tech
+Instructions:
+1) Add this file as index.html in your GitHub Pages repo root.
+2) Ensure the other pages exist with these filenames:
+   notes.html, tools.html, projects.html, ai-tools.html, ai-lab.html, about.html, contact.html
+3) Commit and push. GitHub Pages will auto-deploy.
+
+This index is responsive, includes clear navigation, CTA buttons, and links to all pages you built.
+-->
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sarv-Kalyan Tech — Home</title>
+  <meta name="description" content="Sarv-Kalyan Tech — Free notes, tools, innovation lab, AI experiments. Zero-cost, open for all." />
+  <style>
+    :root{--bg:#071427;--card:#0b1220;--muted:#94a3b8;--accent:#06b6d4;--glass:rgba(255,255,255,0.04)}
+    *{box-sizing:border-box}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,'Noto Sans',Arial;margin:0;background:linear-gradient(180deg,#001022 0%,#071427 100%);color:#e6eef6}
+    .wrap{max-width:1100px;margin:28px auto;padding:22px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:56px;height:56px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;border-radius:12px;font-size:28px}
+    h1{margin:0;font-size:20px}
+    nav{display:flex;gap:10px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:8px}
+    nav a:hover{color:#fff;background:var(--glass)}
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:20px;margin-top:22px;align-items:start}
+    .card{background:rgba(255,255,255,0.02);padding:18px;border-radius:12px;box-shadow:0 8px 30px rgba(2,6,23,0.6)}
+    .lead{color:var(--muted);margin-top:8px}
+    .cta{display:flex;gap:10px;margin-top:12px}
+    .btn{background:linear-gradient(90deg,var(--accent),#7c3aed);color:#02131c;padding:10px 14px;border-radius:10px;border:0;font-weight:700;cursor:pointer;text-decoration:none}
+    .secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);padding:10px 14px;border-radius:10px;text-decoration:none}
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+    .feat{background:var(--glass);padding:12px;border-radius:8px;text-align:center}
+    .links{display:flex;flex-direction:column;gap:8px}
+    .small{font-size:13px;color:var(--muted)}
+    footer{margin-top:28px;color:var(--muted);font-size:13px;text-align:center;padding:18px}
+    .badge{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.03);font-weight:700;color:var(--accent)}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+    .notice{background:rgba(255,255,255,0.02);padding:10px;border-radius:8px;color:var(--muted)}
+    @media(max-width:980px){.hero{grid-template-columns:1fr} .features{grid-template-columns:repeat(2,1fr)} }
+    @media(max-width:560px){.features{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true">🌱</div>
+        <div>
+          <h1>Sarv-Kalyan Tech</h1>
+          <div class="lead">Free Notes • Free Tools • Innovation • AI Lab — सबके लिए</div>
+        </div>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="notes.html">Notes</a>
+        <a href="tools.html">Tools</a>
+        <a href="projects.html">Projects</a>
+        <a href="ai-tools.html">AI Tools</a>
+        <a href="ai-lab.html">AI Lab</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main class="hero">
+      <section>
+        <div class="card">
+          <h2>Welcome — Sarv-Kalyan Tech</h2>
+          <p class="lead">हमारा मकसद: technology और education को zero-cost में हर छात्र, शिक्षक और creator तक पहुँचाना। नीचे से जुड़ें और contribute करें — तुम्हारा काम लाखों लोगों की मदद करेगा।</p>
+
+          <div class="cta">
+            <a class="btn" href="notes.html">📘 Free Notes पढ़ो</a>
+            <a class="secondary" href="projects.html">🚀 अपना Project Submit करो</a>
+          </div>
+
+          <div class="features" style="margin-top:18px">
+            <div class="feat"><strong>Free Tools</strong><div class="small">PDF, Image, Text tools</div></div>
+            <div class="feat"><strong>AI Tools</strong><div class="small">Text, Image, Speech converters</div></div>
+            <div class="feat"><strong>AI Lab</strong><div class="small">Interactive experiments</div></div>
+          </div>
+
+          <div class="card" style="margin-top:14px">
+            <h3>How to start (Just 5 minutes)</h3>
+            <ol class="small">
+              <li>Check pages: Notes, Tools, AI Tools, AI Lab, Projects, About, Contact</li>
+              <li>Upload your notes / projects into <code>notes/</code> and <code>projects/</code> folders in repo</li>
+              <li>Share the site URL to WhatsApp/Telegram groups to get first users</li>
+            </ol>
+            <p class="small">अगर तुम चाहो तो मैं duplicate files cleanup करके सब canonical file names confirm कर दूँगा — बताओ कौन सा रखना है और कौन सा हटाना है।</p>
+          </div>
+
+        </div>
+
+        <div class="card" style="margin-top:14px">
+          <h3>Recent Updates</h3>
+          <div class="grid-2">
+            <div class="notice">✅ AI Lab (Interactive experiments) added</div>
+            <div class="notice">✅ AI Tools Hub (Playground) added</div>
+          </div>
+          <p class="small" style="margin-top:10px">हम ने multi-page site तैयार कर ली है — हर page GitHub repo में add करके आप live कर सकते हो।</p>
+        </div>
+
+      </section>
+
+      <aside>
+        <div class="card">
+          <h3>Quick Links</h3>
+          <div class="links">
+            <a href="notes.html">📘 Notes Library</a>
+            <a href="tools.html">🛠 Free Tools</a>
+            <a href="projects.html">🚀 Innovation Projects</a>
+            <a href="ai-tools.html">🤖 AI Tools Hub</a>
+            <a href="ai-lab.html">🔬 AI Lab</a>
+            <a href="about.html">ℹ️ About Us</a>
+            <a href="contact.html">✉️ Contact</a>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:14px">
+          <h3>Support the Project</h3>
+          <p class="small">Donate or sponsor when you can — all funds will help keep the platform free and growing.</p>
+          <div style="margin-top:10px"> <a class="btn" href="#">Donate (Add UPI/Ko-fi later)</a></div>
+        </div>
+
+      </aside>
+    </main>
+
+    <footer>
+      © 2025 Sarv-Kalyan Tech • Built for students & creators • Zero-cost
+    </footer>
+  </div>
+</body>
+</html>
+sitory named `sarv-kalyan-tech` (or any name).
 2) Add this file as `index.html` in the repository root.
 3) Commit & push. On GitHub, go to Settings -> Pages -> Source -> select `main` branch and `/ (root)` -> Save.
    Your site will be available at: https://<yourusername>.github.io/<repo-name>/  or for username.github.io if repo is named username.github.io
