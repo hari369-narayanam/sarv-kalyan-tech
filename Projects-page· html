@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects — Sarv-Kalyan Tech</title>
+  <style>
+    body{font-family:system-ui;background:#0f172a;color:#e2e8f0;margin:0}
+    header{background:#0b1220;padding:20px;text-align:center}
+    header h1{margin:0;font-size:28px;color:#38bdf8}
+    nav a{color:#38bdf8;margin:0 12px;text-decoration:none;font-weight:600}
+    .wrap{max-width:900px;margin:auto;padding:20px}
+    .card{background:#0b1220;padding:20px;border-radius:12px;margin-bottom:20px;box-shadow:0 0 12px rgba(0,0,0,0.45)}
+    input,textarea{width:100%;padding:10px;border-radius:8px;background:#0f172a;border:1px solid #1e293b;color:#e2e8f0;margin-top:6px}
+    button{background:#38bdf8;color:#0f172a;border:0;padding:12px 20px;border-radius:8px;margin-top:10px;font-weight:700;cursor:pointer}
+    .proj-item{padding:12px;border-bottom:1px dashed #1e293b}
+    .proj-item h3{margin:0;color:#38bdf8}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Innovation & Projects</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="notes.html">Notes</a>
+      <a href="tools.html">Tools</a>
+      <a href="projects.html">Projects</a>
+    </nav>
+  </header>
+
+  <div class="wrap">
+
+    <div class="card">
+      <h2>Project Upload Guide</h2>
+      <p>अपने प्रोजेक्ट GitHub पर <code>projects/</code> फोल्डर में markdown (.md) file के रूप में upload करो।
+      उसका नाम कुछ इस तरह हो सकता है:</p>
+      <ul>
+        <li><code>free-energy-coil.md</code></li>
+        <li><code>wireless-power-transfer.md</code></li>
+        <li><code>ai-study-helper.md</code></li>
+      </ul>
+      <p>नीचे uploaded प्रोजेक्ट्स की list दिखाई देगी (manual links add करने होंगे)।</p>
+    </div>
+
+    <div class="card">
+      <h2>Latest Projects</h2>
+      <div class="proj-item">
+        <h3>📡 Wireless Energy Transfer (Basic Tesla Coil)</h3>
+        <p>कैसे low-cost में wireless power demo बनाएं।</p>
+        <a href="#">Read More →</a>
+      </div>
+
+      <div class="proj-item">
+        <h3>🔋 Solar Phone Charger (₹80 Project)</h3>
+        <p>Mini portable charger using 5V solar cell + boost module.</p>
+        <a href="#">Read More →</a>
+      </div>
+
+      <div class="proj-item">
+        <h3>🤖 AI Study Helper Offline</h3>
+        <p>Python + local ML summarizer for students.</p>
+        <a href="#">Read More →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Submit Your Project (Form)</h2>
+      <p>(यह form GitHub पर email भेजने का demo है; real backend नहीं है क्योंकि site static है।)</p>
+
+      <input id="pname" placeholder="Project Name" />
+      <textarea id="pdetails" rows="5" placeholder="Short description"></textarea>
+      <input id="pemail" placeholder="Your Email (optional)" />
+      <button onclick="fakeSubmit()">Submit</button>
+      <p id="msg"></p>
+    </div>
+  </div>
+
+  <script>
+    function fakeSubmit(){
+      document.getElementById('msg').textContent = "✔ प्रोजेक्ट receive हो गया! हम GitHub पर add कर देंगे.";
+      document.getElementById('msg').style.color = '#4ade80';
+    }
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects – Knowledge Hub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">🔧 Projects</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="notes.html">Notes</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>🚀 Student Science & Tech Projects</h1>
+        <p>Yahan par tumhare level ke powerful, creative aur real-life working projects milenge!</p>
+    </section>
+
+    <section class="project-list">
+
+        <!-- Project 1 -->
+        <div class="project-card">
+            <h2>1. Tesla Coil Mini (Safe Version)</h2>
+            <p>Ek safe, low‑voltage Tesla Coil jo exhibition me logon ko shock (surprise) dega! High‑voltage nahi—school‑safe.</p>
+            <a href="#" class="btn">View Details</a>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+            <h2>2. Wireless Power Transfer Pad</h2>
+            <p>Mobile charger jaise working model. Ek coil se dusri coil me power transfer—no wires!</p>
+            <a href="#" class="btn">View Details</a>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card">
+            <h2>3. Smart Rain Alarm</h2>
+            <p>Water sensor + buzzer = barish jaise hi shuru ho, alarm baj jayega. Ghar, farm sab jagah useful.</p>
+            <a href="#" class="btn">View Details</a>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card">
+            <h2>4. Eco‑Friendly Radiation Shield</h2>
+            <p>Radiation‑absorbing plant based shield. Tumhari idea list se inspired!</p>
+            <a href="#" class="btn">View Details</a>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="project-card">
+            <h2>5. Solar Tracking System</h2>
+            <p>Solar panel automatically sun ki direction follow karega. Energy efficiency 40% badh jati hai!</p>
+            <a href="#" class="btn">View Details</a>
+        </div>
+
+    </section>
+
+    <footer>
+        <p>© 2025 Knowledge Hub | Built with ❤️</p>
+    </footer>
+
+</body>
+</html>
