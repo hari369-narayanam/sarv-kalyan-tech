@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Lab — Interactive Experiments & Simulations</title>
+<style>
+ body {font-family: system-ui; margin:0; background:#0f172a; color:#e2e8f0;}
+ .wrap {max-width: 1000px; margin:auto; padding:20px;}
+ h1 {margin-top:0;}
+ .grid {display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+ .card {background:#1e293b; padding:16px; border-radius:12px;}
+ button {padding:10px 16px; border:0; border-radius:8px; background:#06b6d4; color:#02131c; font-weight:700; cursor:pointer;}
+ textarea,input {width:100%; padding:10px; border-radius:8px; border:0; margin-top:8px; background:#0f172a; color:#e2e8f0;}
+ pre {background:#0f172a; padding:12px; border-radius:8px; white-space:pre-wrap;}
+ @media(max-width:800px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+ <h1>AI Lab — Interactive Experiments 🔬🤖</h1>
+ <p>यहाँ छोटे‑छोटे client‑side AI/ML demos चलेंगे — बिना किसी backend या API key के!</p>
+ 
+ <div class="grid">
+
+    <!-- EXPERIMENT 1: Sentiment Analyzer -->
+    <div class="card">
+      <h2>1) Sentiment Analyzer (Rule-based)</h2>
+      <textarea id="sent-text" rows="5" placeholder="अपना text लिखो..."></textarea>
+      <button onclick="analyzeSentiment()">Analyze</button>
+      <pre id="sent-out"></pre>
+    </div>
+
+    <!-- EXPERIMENT 2: Keyword Extractor -->
+    <div class="card">
+      <h2>2) Keyword Extractor</h2>
+      <textarea id="key-text" rows="5" placeholder="यहाँ text डाले..."></textarea>
+      <button onclick="extractKeywords()">Extract Keywords</button>
+      <pre id="key-out"></pre>
+    </div>
+
+    <!-- EXPERIMENT 3: Pattern Detector -->
+    <div class="card">
+      <h2>3) Pattern Detector</h2>
+      <textarea id="pat-text" rows="4" placeholder="Example: physics, magnetism, energy..."></textarea>
+      <button onclick="detectPatterns()">Detect Patterns</button>
+      <pre id="pat-out"></pre>
+    </div>
+
+    <!-- EXPERIMENT 4: Random Idea Generator -->
+    <div class="card">
+      <h2>4) AI Idea Generator</h2>
+      <button onclick="generateIdea()">Generate Idea</button>
+      <pre id="idea-out"></pre>
+    </div>
+
+ </div>
+</div>
+
+<script>
+// SENTIMENT ANALYZER
+function analyzeSentiment(){
+  const text = document.getElementById('sent-text').value.toLowerCase();
+  const out = document.getElementById('sent-out');
+  if(!text){ out.textContent='Type something first!'; return; }
+  let posWords=['good','great','nice','happy','love','awesome','best','excellent','सही','खुश','अच्छा'];
+  let negWords=['bad','sad','angry','hate','worst','terrible','pain','गलत','बुरा'];
+  let score=0;
+  posWords.forEach(w=>{ if(text.includes(w)) score++; });
+  negWords.forEach(w=>{ if(text.includes(w)) score--; });
+  let result='Neutral 🙂';
+  if(score>0) result='Positive 😃';
+  if(score<0) result='Negative 😞';
+  out.textContent = `Sentiment: ${result}\nScore: ${score}`;
+}
+
+// KEYWORD EXTRACTOR
+function extractKeywords(){
+  const text = document.getElementById('key-text').value;
+  const out = document.getElementById('key-out');
+  if(!text){ out.textContent='Please type something.'; return; }
+  const words = text.toLowerCase().replace(/[^a-z0-9\sऀ-ॿ]/g,' ').split(/\s+/).filter(w=>w.length>3);
+  let freq={}; words.forEach(w=>{ freq[w]=(freq[w]||0)+1 });
+  let sorted = Object.entries(freq).sort((a,b)=>b[1]-a[1]).slice(0,6);
+  out.textContent = 'Top Keywords:\n' + sorted.map(x=>`${x[0]} (${x[1]})`).join('\n');
+}
+
+// PATTERN DETECTOR
+function detectPatterns(){
+  const text = document.getElementById('pat-text').value;
+  const out = document.getElementById('pat-out');
+  if(!text){ out.textContent='Type something first.'; return; }
+  const sci = ['physics','energy','gravity','magnet','atom','field','wave','quantum'];
+  const cyber = ['hack','password','attack','security','network','cyber'];
+  const money = ['earn','business','market','profit','invest'];
+
+  let t = text.toLowerCase();
+  let result = [];
+  if(sci.some(w=>t.includes(w))) result.push('🔬 Science/Physics Pattern');
+  if(cyber.some(w=>t.includes(w))) result.push('🛡 Cybersecurity Pattern');
+  if(money.some(w=>t.includes(w))) result.push('💰 Finance/Business Pattern');
+
+  out.textContent = result.length? result.join('\n') : 'No strong pattern detected.';
+}
+
+// IDEA GENERATOR
+function generateIdea(){
+  const ideas=[
+    'Solar + Magnetism Hybrid Free-energy Style Device (Educational Model)',
+    'AI-based Study Helper that works fully offline',
+    'Low-cost Water Purification using Tesla Valve principle',
+    'Village-level Smart Irrigation using Sensors + Offline ML',
+    'Micro Plasma Globe using Household Components',
+    'AI-enabled Braille Learning Tool for blind students',
+    'Ultra-low Power Wireless Charger Concept (demonstration)' 
+  ];
+  document.getElementById('idea-out').textContent = ideas[Math.floor(Math.random()*ideas.length)];
+}
+</script>
+</body>
+</html>
