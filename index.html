@@ -1,0 +1,248 @@
+<!--
+Project: Sarv-Kalyan Tech (Zero-cost launch)
+File: Single-file static website (HTML/CSS/JS)
+How to use:
+1) Create a new GitHub repository named `sarv-kalyan-tech` (or any name).
+2) Add this file as `index.html` in the repository root.
+3) Commit & push. On GitHub, go to Settings -> Pages -> Source -> select `main` branch and `/ (root)` -> Save.
+   Your site will be available at: https://<yourusername>.github.io/<repo-name>/  or for username.github.io if repo is named username.github.io
+4) Optionally connect Netlify/Vercel by dragging repo (both have free plans and auto-deploy from GitHub).
+
+This single-file site contains:
+- Home / About
+- Free Notes library (links to markdown/PDFs you will add into `notes/` folder)
+- Free Tools (client-side; no server, zero-cost):
+    * Text Summarizer (extractive, client-side JS)
+    * Text -> PDF (jsPDF)
+    * Image -> PDF (html2canvas + jsPDF)
+- Contribute / Get Involved section
+- Donation & Sponsor placeholders
+- Quick deploy README (below in comment)
+
+README Quick deploy (commands):
+# on your computer (if git installed):
+# 1. initialize repo
+git init
+git add index.html
+git commit -m "initial sarv-kalyan site"
+# 2. create repo on GitHub (use web UI), then:
+git remote add origin https://github.com/<yourusername>/<repo>.git
+git branch -M main
+git push -u origin main
+# 3. Enable GitHub Pages via repo Settings -> Pages -> select main branch root.
+
+Want me to do the exact git commands for your machine? Say "Do it for me" and give your GitHub username. I will prepare step-by-step commands you can copy-paste.
+-->
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sarv-Kalyan Tech — Free Education & Tools</title>
+  <meta name="description" content="Free notes, free tools, innovation zone, cyber safety, motivation — zero cost, open for all." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🌱</text></svg>">
+  <style>
+    :root{--bg:#0f172a;--card:#0b1220;--muted:#94a3b8;--accent:#06b6d4}
+    *{box-sizing:border-box}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,'Noto Sans',Arial; margin:0; background:linear-gradient(180deg,#001122 0%, #071428 100%); color:#e6eef6}
+    .wrap{max-width:980px;margin:28px auto;padding:20px}
+    header{display:flex;align-items:center;gap:16px}
+    .logo{width:64px;height:64px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;border-radius:12px;box-shadow:0 6px 20px rgba(2,6,23,0.6)}
+    .logo svg{width:44px;height:44px}
+    h1{margin:0;font-size:22px}
+    p.lead{color:var(--muted);margin:6px 0 20px}
+    nav a{color:var(--accent);margin-right:12px;text-decoration:none}
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:20px}
+    .card{background:rgba(255,255,255,0.02);padding:16px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.5)}
+    .tools button{display:block;width:100%;margin:8px 0;padding:10px;border-radius:8px;border:0;background:linear-gradient(90deg,var(--accent),#7c3aed);color:#052033;font-weight:700}
+    textarea,input{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit}
+    .notes-list a{display:block;padding:8px 0;border-bottom:1px dashed rgba(255,255,255,0.03);color:#dbeafe;text-decoration:none}
+    footer{margin-top:22px;color:var(--muted);font-size:13px}
+    .small{font-size:13px;color:var(--muted)}
+    .success{color:#a7f3d0}
+    .row{display:flex;gap:8px}
+    @media (max-width:900px){.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo" aria-hidden="true">
+        <!-- simple SVG logo -->
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="30" r="14" fill="#fff" opacity="0.12" />
+          <rect x="25" y="48" width="50" height="34" rx="8" fill="#fff" opacity="0.06" />
+          <path d="M25 60 Q50 45 75 60" stroke="#fff" stroke-width="3" fill="none" opacity="0.08"/>
+        </svg>
+      </div>
+      <div>
+        <h1>Sarv-Kalyan Tech</h1>
+        <p class="lead">Free notes • Free tools • Innovation • Cyber safety • Motivation — Zero-cost, Open for all.</p>
+        <nav><a href="#notes">Notes</a> · <a href="#tools">Free Tools</a> · <a href="#innovate">Innovation</a> · <a href="#contribute">Contribute</a></nav>
+      </div>
+    </header>
+
+    <main class="grid" style="margin-top:18px">
+      <section>
+        <div class="card">
+          <h2>Start here — क्या यह है?</h2>
+          <p class="small">Sarv-Kalyan Tech का मकसद — हर छात्र और युवा तक free technology, free study material और innovation ideas पहुँचाना।
+          यहाँ से आप notes पढ़ोगे, tools प्रयोग करोगे, और अपने inventions share कर पाओगे।</p>
+
+          <h3 id="notes" style="margin-top:16px">Free Notes Library</h3>
+          <p class="small">Notes और PDFs repo के <code>notes/</code> फोल्डर में रखो। Example files already listed (placeholders). जब तुम GitHub पर upload कर दोगे, ये लिस्ट auto-update नहीं होती — पर तुम manually links add कर सकते हो।</p>
+
+          <div class="notes-list">
+            <a href="#">📘 Class 9 — Control & Coordination (PDF)</a>
+            <a href="#">📗 Class 10 — Biology Quick Notes</a>
+            <a href="#">📙 IIT Foundation — Basics (Physics)</a>
+            <a href="#">📄 Example: 7 Free AI Prompts for Students (Download)</a>
+          </div>
+
+          <h3 id="tools" style="margin-top:12px">Free Tools (client-side — no server)</h3>
+          <p class="small">इन tools को तुम सीधे ब्राउज़र में चला सकते हो — कोई API key नहीं चाहिए। मैं इनके code तुम्हारे लिए add कर दिया है।</p>
+
+          <div class="card tools">
+            <h4>1) Text Summarizer (Extractive)</h4>
+            <textarea id="summarize-input" rows="6" placeholder="यहाँ अपना पाठ paste करो — और 'Summarize' दबाओ"></textarea>
+            <button onclick="doSummarize()">Summarize</button>
+            <pre id="summ-out" style="white-space:pre-wrap;background:rgba(255,255,255,0.02);padding:10px;border-radius:8px;margin-top:8px"></pre>
+
+            <h4 style="margin-top:12px">2) Text → PDF</h4>
+            <textarea id="pdf-text" rows="5" placeholder="PDF के लिए text यहाँ लिखो"></textarea>
+            <div class="row"><button onclick="textToPdf()">Download PDF</button><button onclick="downloadSamplePDF()">Sample PDF</button></div>
+
+            <h4 style="margin-top:12px">3) Images → PDF</h4>
+            <input id="img-file" type="file" accept="image/*" multiple />
+            <div class="row" style="margin-top:8px"><button onclick="imagesToPdf()">Convert Images to PDF</button></div>
+            <p class="small">(Large files may be slow; client-side conversion using jsPDF)</p>
+          </div>
+
+          <h3 id="innovate" style="margin-top:12px">Innovation Zone</h3>
+          <p class="small">Share low-cost projects, Tesla-style ideas, renewable mini-projects. Add your projects in <code>projects/</code> folder in repo as markdown files.</p>
+
+          <h3 id="contribute" style="margin-top:12px">Contribute / Volunteer</h3>
+          <p class="small">Add notes, translate, test tools, or sponsor a section. Contributors get credit and free mentorship.</p>
+
+        </div>
+
+        <div class="card" style="margin-top:14px">
+          <h3>Launch Checklist — 10 मिनट में</h3>
+          <ol class="small">
+            <li>Create GitHub repo and push this file as <code>index.html</code>.</li>
+            <li>Create folders: <code>notes/</code>, <code>projects/</code>, <code>assets/</code> and add PDFs or md files.</li>
+            <li>Enable GitHub Pages (Settings → Pages → main → /root).</li>
+            <li>Share the URL with friends & WhatsApp groups.</li>
+          </ol>
+          <p class="small">अगर तुम चाहो, मैं तुम्हारे लिए GitHub commands prepare कर दूँ — बस अपना GitHub username बताओ।</p>
+        </div>
+
+      </section>
+
+      <aside>
+        <div class="card">
+          <h3>Quick Links</h3>
+          <p class="small">Useful places to host / extend later (all free):</p>
+          <ul class="small">
+            <li>GitHub Pages — free static hosting</li>
+            <li>Netlify / Vercel — free deployments</li>
+            <li>HuggingFace Spaces — free small ML demos & chatbots</li>
+            <li>Gumroad / Ko-fi — sell premium PDFs</li>
+          </ul>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h3>Donate / Sponsor</h3>
+          <p class="small">आप चाहो तो free donate link यहाँ जोड़ सकते हो (Paytm/UPI link or Ko-fi). इसे बाद में add करो जब traffic आए।</p>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h3>Contact</h3>
+          <p class="small">Email: <code>yourname@users.noreply.github.com</code> (change in repo)</p>
+          <p class="small">Telegram / WhatsApp group links — add here when ready.</p>
+        </div>
+
+      </aside>
+    </main>
+
+    <footer>
+      <p class="small">© Sarv-Kalyan Tech — Free and open. Built for students & creators. Want me to prepare Git commands for your GitHub account? Reply with your GitHub username and I'll give copy-paste commands.</p>
+    </footer>
+  </div>
+
+  <!-- Libraries for PDF conversion (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+  <script>
+    // Simple extractive summarizer (client-side, no AI)
+    function doSummarize(){
+      const text = document.getElementById('summarize-input').value.trim();
+      const out = document.getElementById('summ-out');
+      if(!text){out.textContent='Please paste text.'; return}
+      const sentences = text.match(/[^\.!?]+[\.!?]?/g) || [text];
+      const freq = {};
+      const words = text.toLowerCase().replace(/[^a-z0-9\s\u0900-\u097F]/g,' ').split(/\s+/).filter(Boolean);
+      words.forEach(w=>{ if(w.length>2) freq[w]=(freq[w]||0)+1 });
+      const scores = sentences.map(s=>{
+        const sWords = s.toLowerCase().split(/\s+/);
+        let sc=0; sWords.forEach(w=>{ if(freq[w]) sc+=freq[w] });
+        return {s, sc}
+      });
+      scores.sort((a,b)=>b.sc-a.sc);
+      const top = scores.slice(0, Math.max(1, Math.ceil(scores.length*0.25))).sort((a,b)=> text.indexOf(a.s)-text.indexOf(b.s)).map(x=>x.s.trim()).join(' ');
+      out.textContent = top;
+    }
+
+    // Text -> PDF using jsPDF
+    async function textToPdf(){
+      const { jsPDF } = window.jspdf;
+      const text = document.getElementById('pdf-text').value.trim();
+      if(!text) return alert('Type text for PDF');
+      const doc = new jsPDF({unit:'pt',format:'a4'});
+      const margin=40; const lineHeight=14; const maxWidth=doc.internal.pageSize.getWidth()-margin*2;
+      const lines = doc.splitTextToSize(text, maxWidth);
+      let cursor=margin;
+      for(let i=0;i<lines.length;i++){
+        if(cursor>doc.internal.pageSize.getHeight()-margin){ doc.addPage(); cursor=margin }
+        doc.text(lines[i], margin, cursor);
+        cursor+=lineHeight;
+      }
+      doc.save('sarv-kalyan-text.pdf');
+    }
+
+    function downloadSamplePDF(){
+      document.getElementById('pdf-text').value = 'This is a sample PDF from Sarv-Kalyan Tech. Use this space to create study notes and download as PDF.\n\nMake sure to add your name and share!';
+    }
+
+    // Images -> PDF
+    async function imagesToPdf(){
+      const files = document.getElementById('img-file').files;
+      if(!files.length) return alert('Choose images');
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF({unit:'pt'});
+      for(let i=0;i<files.length;i++){
+        const file = files[i];
+        const img = await fileToImage(file);
+        const canvas = await html2canvas(img);
+        const imgData = canvas.toDataURL('image/jpeg',0.95);
+        const imgProps = doc.getImageProperties(imgData);
+        const pdfWidth = doc.internal.pageSize.getWidth();
+        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+        if(i>0) doc.addPage();
+        doc.addImage(imgData,'JPEG',0,0,pdfWidth,pdfHeight);
+      }
+      doc.save('images-to-pdf.pdf');
+    }
+    function fileToImage(file){
+      return new Promise((res,rej)=>{
+        const reader = new FileReader();
+        reader.onload = ()=>{
+          const img = new Image(); img.src = reader.result; img.onload = ()=>res(img); img.onerror=rej;
+        };
+        reader.onerror = rej; reader.readAsDataURL(file);
+      })
+    }
+  </script>
+</body>
+</html>
