@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tools — Sarv‑Kalyan Tech</title>
+  <style>
+    body{font-family:system-ui;background:#0f172a;color:#e2e8f0;margin:0;padding:0}
+    header{background:#0b1220;padding:20px;text-align:center}
+    header h1{margin:0;font-size:26px;color:#38bdf8}
+    nav a{color:#38bdf8;margin:0 10px;text-decoration:none;font-weight:600}
+    .wrap{max-width:900px;margin:auto;padding:20px}
+    .card{background:#0b1220;padding:20px;border-radius:12px;margin-bottom:20px;box-shadow:0 0 12px rgba(0,0,0,0.5)}
+    textarea,input{width:100%;padding:10px;border-radius:8px;border:1px solid #1e293b;background:#0f172a;color:#e2e8f0;margin-top:10px}
+    button{background:#38bdf8;color:#0f172a;border:0;padding:12px 20px;border-radius:8px;margin-top:10px;font-weight:700;cursor:pointer}
+    pre{background:#1e293b;padding:10px;border-radius:8px;margin-top:10px;white-space:pre-wrap}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Free Tools — Sarv‑Kalyan Tech</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="notes.html">Notes</a>
+      <a href="tools.html">Tools</a>
+    </nav>
+  </header>
+
+  <div class="wrap">
+
+    <div class="card">
+      <h2>Text Summarizer (Extractive)</h2>
+      <textarea id="sum-text" rows="6" placeholder="यहाँ text paste करें"></textarea>
+      <button onclick="summ()">Summarize</button>
+      <pre id="sum-out"></pre>
+    </div>
+
+    <div class="card">
+      <h2>Text → PDF</h2>
+      <textarea id="pdf-text" rows="5" placeholder="PDF के लिए text लिखें"></textarea>
+      <button onclick="textToPdf()">Download PDF</button>
+    </div>
+
+    <div class="card">
+      <h2>Images → PDF</h2>
+      <input id="img-file" type="file" accept="image/*" multiple />
+      <button onclick="imgToPdf()">Convert & Download</button>
+    </div>
+
+  </div>
+
+  <!-- JS Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+  <script>
+    function summ(){
+      let txt = document.getElementById('sum-text').value;
+      if(!txt){ alert('Paste text first'); return; }
+      let sentences = txt.match(/[^\.?!]+[\.?!]/g) || [txt];
+      let freq = {}; let words = txt.toLowerCase().split(/\W+/);
+      words.forEach(w=>{ if(w.length>2) freq[w]=(freq[w]||0)+1 });
+      let scored = sentences.map(s=>({s,score:s.toLowerCase().split(/\W+/).reduce((a,w)=>a+(freq[w]||0),0)}));
+      scored.sort((a,b)=>b.score-a.score);
+      let top = scored.slice(0,Math.ceil(scored.length*0.25)).map(o=>o.s).join(' ');
+      document.getElementById('sum-out').textContent = top;
+    }
+
+    async function textToPdf(){
+      const { jsPDF } = window.jspdf;
+      let t = document.getElementById('pdf-text').value;
+      if(!t){ alert('Write text'); return; }
+      let d = new jsPDF();
+      let lines = d.splitTextToSize(t,180);
+      d.text(lines,10,10);
+      d.save('text.pdf');
+    }
+
+    async function imgToPdf(){
+      let files = document.getElementById('img-file').files;
+      if(!files.length){ alert('Choose images'); return; }
+      const { jsPDF } = window.jspdf;
+      let d = new jsPDF();
+      for(let i=0;i<files.length;i++){
+        let img = await fileToImg(files[i]);
+        let cvs = await html2canvas(img);
+        let data = cvs.toDataURL('image/jpeg');
+        if(i>0) d.addPage();
+        d.addImage(data,'JPEG',0,0,210,0);
+      }
+      d.save('images.pdf');
+    }
+
+    function fileToImg(f){
+      return new Promise((res)=>{
+        let r = new FileReader();
+        r.onload = ()=>{ let im = new Image(); im.src=r.result; im.onload=()=>res(im); };
+        r.readAsDataURL(f);
+      });
+    }
+  </script>
+</body>
+</html>
