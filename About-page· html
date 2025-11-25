@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background: #111827;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 28px;
+        }
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        h2 {
+            margin-top: 0;
+            color: #111827;
+        }
+        p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .team-section {
+            margin-top: 40px;
+        }
+        .team-card {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+        }
+        footer {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header>About Us</header>
+
+    <div class="container">
+        <h2>Our Mission</h2>
+        <p>
+            Our mission is simple but powerful — to make knowledge accessible to everyone for free. 
+            We believe that technology can uplift people, improve their lives, and open doors for millions.
+        </p>
+
+        <h2>Who We Are</h2>
+        <p>
+            We are a community-driven initiative focused on helping students, creators, and learners find the best tools, notes, and guidance at zero cost.
+            This platform is built to benefit everyone — without ads, without fees, without limitations.
+        </p>
+
+        <h2>What We Do</h2>
+        <p>
+            We create high-quality educational content, free downloadable resources, interactive tools, and life-changing learning material.
+            Everything here is made to empower individuals of every level — from beginners to advanced learners.
+        </p>
+
+        <div class="team-section">
+            <h2>Founder</h2>
+            <div class="team-card">
+                <h3>Hari Narayanam</h3>
+                <p>Creator, developer, thinker, and someone determined to create impact through technology without any cost barrier.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        © 2025 — Your Educational Platform. All rights reserved.
+    </footer>
+</body>
+</html>
