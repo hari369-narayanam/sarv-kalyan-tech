@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notes | Sarv Kalyan Tech</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f0f2f5;
+      color: #222;
+    }
+    header {
+      background: #111;
+      padding: 20px;
+      color: white;
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    nav {
+      display: flex;
+      background: #222;
+      padding: 12px;
+      justify-content: center;
+      gap: 25px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #00eaff;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+    .note-card {
+      background: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+    }
+    .note-card h2 {
+      margin-top: 0;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #111;
+      color: white;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<header>📘 Study Notes – Sarv Kalyan Tech</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="notes.html">Notes</a>
+  <a href="tools.html">Tools</a>
+  <a href="innovation.html">Innovation Lab</a>
+  <a href="about.html">About</a>
+</nav>
+
+<div class="container">
+  <h1>All Notes</h1>
+  <p>Yaha par tum Class 6–12, IIT-JEE, NEET, Science, Tech, Cyber, GK… sabke detailed notes upload kar sakte ho.</p>
+
+  <div class="note-card">
+    <h2>📘 Class 9 – Economics: Chapter 2 (Detailed Notes)</h2>
+    <p>Pure chapter ko real-life examples ke sath simplified tarike se explain kiya gaya hai.</p>
+    <a href="#">Read Now</a>
+  </div>
+
+  <div class="note-card">
+    <h2>🧠 Science Notes – Physics, Chemistry, Biology</h2>
+    <p>High-quality diagrams, formulas, short tricks aur real-world use ke sath.</p>
+    <a href="#">Read Now</a>
+  </div>
+
+  <div class="note-card">
+    <h2>💻 Technology Notes – AI, Cybersecurity, Robotics</h2>
+    <p>Beginners + Advanced dono ke liye step-by-step guide.</p>
+    <a href="#">Read Now</a>
+  </div>
+
+  <div class="note-card">
+    <h2>📚 Special: Sarv-Kalyan Knowledge Notes</h2>
+    <p>Yaha tum wo knowledge doge jo sabke bhale ke liye ho — health, science, tech, mindset, innovation.</p>
+    <a href="#">Read Now</a>
+  </div>
+
+</div>
+
+<footer>
+  © 2025 Sarv Kalyan Tech | All Rights Reserved
+</footer>
+
+</body>
+</html>
